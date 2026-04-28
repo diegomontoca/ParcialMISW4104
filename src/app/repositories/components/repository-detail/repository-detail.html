@@ -1,0 +1,36 @@
+<a class="back-link" routerLink="/repositories">Volver a repositorios</a>
+
+@if (isLoading()) {
+  <p class="state">Cargando detalle...</p>
+} @else if (errorMessage()) {
+  <p class="state error">{{ errorMessage() }}</p>
+} @else if (repository(); as repository) {
+  <section class="detail">
+    <div class="summary">
+      <span>{{ repository.language }}</span>
+      <h1>{{ repository.name }}</h1>
+      <p>{{ repository.description }}</p>
+    </div>
+
+    <dl>
+      <div>
+        <dt>Identificador</dt>
+        <dd>{{ repository.id }}</dd>
+      </div>
+      <div>
+        <dt>Estrellas</dt>
+        <dd>{{ repository.stars }}</dd>
+      </div>
+      <div>
+        <dt>Creado</dt>
+        <dd>{{ repository.createdAt }}</dd>
+      </div>
+      <div>
+        <dt>Owner</dt>
+        <dd>{{ repository.ownerId }}</dd>
+      </div>
+    </dl>
+  </section>
+} @else {
+  <p class="state error">No existe un repositorio con ese identificador.</p>
+}

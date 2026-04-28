@@ -1,0 +1,32 @@
+@if (user) {
+  <aside class="detail-panel" aria-label="Detalle del usuario">
+    <div class="cover"></div>
+    <img [src]="user.avatarUrl" [alt]="'Avatar de ' + user.name" />
+
+    <div class="detail-content">
+      <span class="role">{{ user.role }}</span>
+      <h2>{{ user.name }}</h2>
+      <p class="username">@{{ user.username }}</p>
+
+      <dl>
+        <div>
+          <dt>Email</dt>
+          <dd>{{ user.email }}</dd>
+        </div>
+        <div>
+          <dt>Ubicacion</dt>
+          <dd>{{ user.location }}</dd>
+        </div>
+        <div>
+          <dt>Repositorios asignados</dt>
+          <dd>{{ user.repoIds.length }}</dd>
+        </div>
+      </dl>
+    </div>
+  </aside>
+} @else {
+  <aside class="empty-panel">
+    <h2>Selecciona un usuario</h2>
+    <p>El detalle se carga aqui usando maestro-detalle entre componentes.</p>
+  </aside>
+}

@@ -1,0 +1,94 @@
+.detail-panel,
+.empty-panel {
+  overflow: hidden;
+  border: 1px solid #dce3ef;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 18px 45px rgba(22, 32, 51, 0.08);
+}
+
+.cover {
+  height: 98px;
+  background: linear-gradient(135deg, #111827, #2f855a 52%, #f5b841);
+}
+
+img {
+  display: block;
+  width: 116px;
+  height: 116px;
+  margin: -58px auto 0;
+  border: 5px solid #ffffff;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.detail-content {
+  padding: 22px;
+  text-align: center;
+}
+
+.role {
+  display: inline-flex;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #e8f5ee;
+  color: #207249;
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+h2 {
+  margin: 14px 0 4px;
+  font-size: clamp(1.45rem, 3vw, 2rem);
+}
+
+.username {
+  margin: 0 0 22px;
+  color: #64748b;
+}
+
+dl {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  text-align: left;
+}
+
+dl div {
+  padding: 14px;
+  border-radius: 8px;
+  background: #f6f8fc;
+}
+
+dt {
+  color: #64748b;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+dd {
+  margin: 4px 0 0;
+  color: #172033;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.empty-panel {
+  display: grid;
+  min-height: 340px;
+  place-content: center;
+  padding: 28px;
+  text-align: center;
+}
+
+.empty-panel h2 {
+  margin: 0 0 8px;
+}
+
+.empty-panel p {
+  max-width: 280px;
+  margin: 0;
+  color: #64748b;
+}

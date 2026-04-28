@@ -1,0 +1,35 @@
+<section class="page-heading">
+  <div>
+    <p class="eyebrow">Punto 1 y 2</p>
+    <h1>Usuarios</h1>
+  </div>
+  <span>{{ users().length }} perfiles</span>
+</section>
+
+@if (isLoading()) {
+  <p class="state">Cargando usuarios...</p>
+} @else if (errorMessage()) {
+  <p class="state error">{{ errorMessage() }}</p>
+} @else {
+  <section class="users-layout">
+    <div class="users-list" aria-label="Listado de usuarios">
+      @for (user of users(); track trackByUserId($index, user)) {
+        <button
+          type="button"
+          class="user-row"
+          [class.selected]="selectedUser()?.id === user.id"
+          (click)="selectUser(user)"
+        >
+          <img [src]="user.avatarUrl" [alt]="'Avatar de ' + user.name" />
+          <span>
+            <strong>{{ user.name }}</strong>
+            <small>{{ user.location }} - {{ user.role }}</small>
+          </span>
+          <b>{{ user.repoIds.length }}</b>
+        </button>
+      }
+    </div>
+
+    <app-user-detail [user]="selectedUser()" />
+  </section>
+}

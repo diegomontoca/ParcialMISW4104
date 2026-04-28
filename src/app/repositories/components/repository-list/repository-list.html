@@ -1,0 +1,30 @@
+<section class="page-heading">
+  <div>
+    <p class="eyebrow">Punto 3 y 4</p>
+    <h1>Repositorios</h1>
+  </div>
+  <span>{{ repositories().length }} proyectos</span>
+</section>
+
+@if (isLoading()) {
+  <p class="state">Cargando repositorios...</p>
+} @else if (errorMessage()) {
+  <p class="state error">{{ errorMessage() }}</p>
+} @else {
+  <section class="repo-grid" aria-label="Listado de repositorios">
+    @for (repository of repositories(); track trackByRepositoryId($index, repository)) {
+      <a class="repo-card" [routerLink]="['/repositories', repository.id]">
+        <div class="repo-card-header">
+          <span>{{ repository.language }}</span>
+          <strong>{{ repository.stars }} estrellas</strong>
+        </div>
+        <h2>{{ repository.name }}</h2>
+        <p>{{ repository.description }}</p>
+        <footer>
+          <span>ID {{ repository.id }}</span>
+          <span>Owner {{ repository.ownerId }}</span>
+        </footer>
+      </a>
+    }
+  </section>
+}
